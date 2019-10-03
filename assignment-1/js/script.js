@@ -1,0 +1,1 @@
+initCarousel(1);

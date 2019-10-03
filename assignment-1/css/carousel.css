@@ -1,0 +1,76 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+}
+
+.carousel-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-wrapper img {
+  float: left;
+}
+
+.previous, .next {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.previous {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.carousel-indicators {
+  margin: 20px auto 0 auto;
+  display: table;
+  padding: 0;
+}
+
+.carousel-indicators li {
+  float: left;
+  list-style: none;
+  background-color: #333333;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.carousel-indicators li.active, .carousel-indicators li:hover {
+  background-color: #ffffff;
+  border: 3px solid #333333;
+  width: 9px;
+  height: 9px;
+}
+
+.carousel-indicators:before, .carousel-indicators:after, .carousel-wrapper:before, .carousel-wrapper:after,
+.carousel:before, .carousel:after {
+  content: "";
+  display: table;
+}
+
+.carousel-indicators:after, .carousel-wrapper:after, .carousel:after {
+  clear: both;
+}
+
+.carousel-indicators, .carousel-wrapper, .carousel {
+  zoom: 1; /*IE 6& 7*/
+}
+
+@media (min-width: 1024px) {
+  .carousel {
+    width: 100%;
+  }
+}
