@@ -1,0 +1,36 @@
+.main{
+  margin: auto;
+}
+.container{
+  margin: 0 20px;
+}
+.carousel {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.container:after, .container:before, .main:after, .main:before {
+  content: "";
+  display: table;
+}
+
+.container:after, .main:after {
+  clear: both;
+}
+
+.container, .main {
+  zoom: 1; /*IE 6& 7*/
+}
+
+@media (min-width: 950px){
+  .main {
+    width: 58em;
+    margin: auto;
+  }
+
+  .carousel {
+    float: left;
+    width: 45.4972%;
+    margin: 20px;
+  }
+}

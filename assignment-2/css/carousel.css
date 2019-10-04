@@ -1,0 +1,71 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-wrapper img {
+  float: left;
+}
+
+.previous, .next {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.previous {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.carousel-indicators {
+  padding: 0;
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.carousel-indicators li.active, .carousel-indicators li:hover {
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  width: 9px;
+  height: 9px;
+}
+
+.carousel-wrapper:before, .carousel-wrapper:after,
+.carousel:before, .carousel:after {
+  content: "";
+  display: table;
+}
+
+.carousel-wrapper:after, .carousel:after {
+  clear: both;
+}
+
+.carousel-wrapper, .carousel {
+  zoom: 1; /*IE 6& 7*/
+}
