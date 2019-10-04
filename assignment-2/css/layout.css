@@ -1,9 +1,11 @@
-.main{
+.main {
   margin: auto;
 }
-.container{
+
+.container {
   margin: 0 20px;
 }
+
 .carousel {
   width: 100%;
   margin: 20px 0;
@@ -22,7 +24,7 @@
   zoom: 1; /*IE 6& 7*/
 }
 
-@media (min-width: 950px){
+@media (min-width: 950px) {
   .main {
     width: 58em;
     margin: auto;
