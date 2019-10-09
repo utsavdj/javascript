@@ -12,9 +12,6 @@ function generateRandomDirection() {
 }
 
 class Ball {
-  xDirection = generateRandomDirection();
-  yDirection = generateRandomDirection();
-  ballColor = BALL_COLORS[generateRandomNumber(0, BALL_COLORS.length)];
 
   constructor(parentElement, wallWidth, wallHeight, speed, massPerUnit, minSize, maxSize) {
     this.parentElement = parentElement;
@@ -25,9 +22,12 @@ class Ball {
     this.wallHeight = wallHeight;
     this.wallWidth = wallWidth;
     this.radius = this.size / 2;
+    this.xDirection = generateRandomDirection();
+    this.yDirection = generateRandomDirection();
     this.xVelocity = this.xDirection * this.speed;
     this.yVelocity = this.yDirection * this.speed;
     this.mass = this.size * massPerUnit;
+    this.ballColor = BALL_COLORS[generateRandomNumber(0, BALL_COLORS.length)];
     this.createBallElement();
   }
 
@@ -123,9 +123,9 @@ class Ball {
 }
 
 class Game {
-  balls = [];
 
   constructor(gameId, ballCount, wallWidth, wallHeight, speed, massPerUnit, minSize, maxSize, fps) {
+    this.balls = [];
     const FRAME_LIMIT = 1000 / fps;
     this.ballCount = ballCount;
     this.wallWidth = wallWidth;

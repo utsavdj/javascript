@@ -10,9 +10,6 @@ function generateRandomDirection() {
 }
 
 class Ant {
-  xDirection = generateRandomDirection();
-  yDirection = generateRandomDirection();
-  isSmashed = false;
 
   constructor(parentElement, wallWidth, wallHeight, speed, massPerUnit, minSize, maxSize) {
     this.parentElement = parentElement;
@@ -23,9 +20,12 @@ class Ant {
     this.height = this.width = this.size;
     this.wallHeight = wallHeight;
     this.wallWidth = wallWidth;
+    this.xDirection = generateRandomDirection();
+    this.yDirection = generateRandomDirection();
     this.xVelocity = this.xDirection * this.speed;
     this.yVelocity = this.yDirection * this.speed;
     this.mass = this.size * massPerUnit;
+    this.isSmashed = false;
     this.createAntElement();
   }
 
@@ -129,10 +129,10 @@ class Ant {
 }
 
 class Game {
-  ants = [];
-  score = 0;
 
   constructor(gameId, antCount, wallWidth, wallHeight, speed, massPerUnit, minSize, maxSize, fps) {
+    this.ants = [];
+    this.score = 0;
     const FRAME_LIMIT = 1000 / fps;
     this.antCount = antCount;
     this.wallWidth = wallWidth;
