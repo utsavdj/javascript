@@ -1,0 +1,10 @@
+.ball {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.ball-collision {
+  position: relative;
+  border: 2px solid green;
+  margin: 30px auto;
+}

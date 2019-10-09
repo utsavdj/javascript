@@ -1,0 +1,33 @@
+.ant {
+  position: absolute;
+}
+
+.ant-smasher-container {
+  margin: 30px auto;
+}
+
+.ant-smasher {
+  position: relative;
+  border: 5px solid brown;
+  background-color: #CF9558;
+}
+
+.score-container {
+  text-align: center;
+  padding: 10px;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  line-height: 28px;
+}
+
+.play-again {
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  outline: none;
+  background-color: #0ED6C0;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
