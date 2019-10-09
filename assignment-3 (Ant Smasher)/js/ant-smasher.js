@@ -210,7 +210,7 @@ class Game {
       victorySound.src = 'sounds/victory.mp3';
       victorySound.play();
       this.scoreContainer = this.parentElement.getElementsByClassName('score-container')[0];
-      this.scoreContainer.innerHTML = 'Congratulations! You Won, you smashed all the ants.';
+      this.scoreContainer.innerHTML = 'Victory! You smashed all the ants.';
       this.retryButton = document.createElement('button');
       this.retryButton.classList.add('play-again');
       this.retryButton.innerText = 'Play Again!';
