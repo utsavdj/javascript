@@ -1,0 +1,15 @@
+#box {
+  background-color: lightBlue;
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin: 15px auto;
+}
+
+.circle-container {
+  border: 1px solid red;
+  width: 500px;
+  height: 300px;
+  position: relative;
+  margin: 15px auto;
+}
