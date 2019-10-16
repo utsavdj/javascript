@@ -172,7 +172,7 @@ class Game {
     this.score = 0;
     this.speedIncrementScore = SPEED_INCREMENT_INTERVAL;
     this.ammoIncrementScore = AMMO_INCREMENT_INTERVAL;
-    this.hiScore = localStorage.getItem("road-rage-hi-score");
+    this.hiScore = localStorage.getItem("road-rage2-hi-score");
     this.numberOfBulletsPerFire = 4;
     this.numberOfBullets = this.numberOfBulletsPerFire * 5;
     this.bullets = [];
@@ -295,6 +295,68 @@ class Game {
     this.menuButtonElement.onclick = () => {
       this.onButtonClick('menu');
     };
+  }
+  checkKeyPress() {
+    document.onkeydown = event => {
+      const control = event.code;
+      const direction = 1;
+      if (control === 'ArrowLeft' || control === 'KeyA') {
+        this.car.movePlayer(-direction);
+      } else if (control === 'ArrowRight' || control === 'KeyD') {
+        this.car.movePlayer(direction);
+      } else if (control === 'Space') {
+        if (!this.isBulletsFired) {
+          this.numberOfBullets -= this.numberOfBulletsPerFire;
+
+          this.playSound('sounds/bullet-fired.mp3');
+
+          if (this.numberOfBullets >= 0) {
+            this.ammoBoxSpanElement.innerText = this.numberOfBullets;
+            for (let i = 0; i < this.numberOfBulletsPerFire; i++) {
+              this.createBullets(i);
+            }
+            this.isBulletsFired = true;
+            setTimeout(() => {
+              this.isBulletsFired = false;
+            }, 1200);
+          }
+        }
+      }
+    };
+  };
+
+  createBullets(bulletIndex) {
+    this.bullet = new Bullet(this.parentElement);
+    this.bulletPositionY = this.bullet.bulletElement.offsetTop +
+      ((this.bullet.bulletElement.offsetHeight + this.bulletOffsetPositionY) * bulletIndex);
+    this.bullet.yPosition = this.bulletPositionY;
+    this.bullets.push(this.bullet);
+    setInterval(this.moveBullets.bind(this), FRAME_LIMIT);
+  }
+
+  moveBullets() {
+    for (let i = 0; i < this.bullets.length; i++) {
+      if (this.bullets[i].isBulletDestroyed) {
+        this.bullets.splice(i, 1);
+        break;
+      } else {
+        this.bullets[i].move();
+      }
+      this.checkBulletCollision(i);
+    }
+  }
+
+
+  checkBulletCollision(bulletIndex) {
+    for (let i = 0; i < this.opponents.length; i++) {
+      if (this.bullets[bulletIndex].checkCollision(this.opponents[i])) {
+        this.score++;
+        this.scoreElement.innerText = this.score;
+        this.explodeOpponent(i);
+        this.bullets[bulletIndex].bulletElement.remove();
+        this.bullets.splice(bulletIndex, 1);
+      }
+    }
   }
 
   createScoreBox() {
@@ -483,72 +545,9 @@ class Game {
 
   updateHiScore() {
     if (!this.hiScore || this.score > this.hiScore) {
-      localStorage.setItem('road-rage-hi-score', this.score);
+      localStorage.setItem('road-rage2-hi-score', this.score);
       this.hiScoreElement.innerText = this.score;
       this.playSound('sounds/hi-score.mp3')
-    }
-  }
-
-  checkKeyPress() {
-    document.onkeydown = event => {
-      const control = event.code;
-      const direction = 1;
-      if (control === 'ArrowLeft' || control === 'KeyA') {
-        this.car.movePlayer(-direction);
-      } else if (control === 'ArrowRight' || control === 'KeyD') {
-        this.car.movePlayer(direction);
-      } else if (control === 'Space') {
-        if (!this.isBulletsFired) {
-          this.numberOfBullets -= this.numberOfBulletsPerFire;
-
-          this.playSound('sounds/bullet-fired.mp3');
-
-          if (this.numberOfBullets >= 0) {
-            this.ammoBoxSpanElement.innerText = this.numberOfBullets;
-            for (let i = 0; i < this.numberOfBulletsPerFire; i++) {
-              this.createBullets(i);
-            }
-            this.isBulletsFired = true;
-            setTimeout(() => {
-              this.isBulletsFired = false;
-            }, 1200);
-          }
-        }
-      }
-    };
-  };
-
-  createBullets(bulletIndex) {
-    this.bullet = new Bullet(this.parentElement);
-    this.bulletPositionY = this.bullet.bulletElement.offsetTop +
-      ((this.bullet.bulletElement.offsetHeight + this.bulletOffsetPositionY) * bulletIndex);
-    this.bullet.yPosition = this.bulletPositionY;
-    this.bullets.push(this.bullet);
-    setInterval(this.moveBullets.bind(this), FRAME_LIMIT);
-  }
-
-  moveBullets() {
-    for (let i = 0; i < this.bullets.length; i++) {
-      if (this.bullets[i].isBulletDestroyed) {
-        this.bullets.splice(i, 1);
-        break;
-      } else {
-        this.bullets[i].move();
-      }
-      this.checkBulletCollision(i);
-    }
-  }
-
-
-  checkBulletCollision(bulletIndex) {
-    for (let i = 0; i < this.opponents.length; i++) {
-      if (this.bullets[bulletIndex].checkCollision(this.opponents[i])) {
-        this.score++;
-        this.scoreElement.innerText = this.score;
-        this.explodeOpponent(i);
-        this.bullets[bulletIndex].bulletElement.remove();
-        this.bullets.splice(bulletIndex, 1);
-      }
     }
   }
 
