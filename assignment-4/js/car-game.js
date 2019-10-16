@@ -218,8 +218,7 @@ class Game {
 
     this.createRoad();
     this.createCar();
-    this.carSound = this.playBackgroundSound('sounds/car-sound.mp3', 'true');
-    this.carSound.playSound();
+    this.playBackgroundSound('sounds/car-sound.mp3', 'true');
     this.checkKeyPress();
 
     const that = this;
