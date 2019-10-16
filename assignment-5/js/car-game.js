@@ -353,12 +353,12 @@ class Game {
   onButtonClick(buttonType) {
     this.opponents = [];
     this.bullets = [];
-    this.score = 0;
     this.speed = this.initialSpeed;
     this.speedIncrementScore = SPEED_INCREMENT_INTERVAL;
     if (!this.hiScore || this.score > this.hiScore) {
       localStorage.setItem('road-rage2-hi-score', this.score);
     }
+    this.score = 0;
     this.numberOfBullets = this.numberOfBulletsPerFire * 5;
     this.isBulletsFired = false;
     clearInterval(this.moveInterval);
