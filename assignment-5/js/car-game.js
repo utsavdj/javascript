@@ -299,7 +299,7 @@ class Game {
 
   createScoreBox() {
     this.score = 0;
-    this.hiScore = localStorage.getItem("road-rage-hi-score");
+    this.hiScore = localStorage.getItem("road-rage2-hi-score");
     this.parentScoreContainerElement = document.createElement('div');
     this.parentScoreContainerElement.classList.add('score-container');
     this.parentElement.appendChild(this.parentScoreContainerElement);
