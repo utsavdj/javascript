@@ -265,7 +265,7 @@ class Game {
         this.scoreElement.innerText = '0';
       } else {
         this.hiScoreElement = this.scoreContainerElement.getElementsByTagName('span')[0];
-        this.hiScoreElement.innerText = this.hiScore;
+        this.hiScoreElement.innerText = this.hiScore ? this.hiScore : '0';
       }
     }
   }
