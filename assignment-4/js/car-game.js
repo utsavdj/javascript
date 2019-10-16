@@ -240,6 +240,7 @@ class Game {
 
   createScoreBox() {
     this.score = 0;
+    this.hiScore = localStorage.getItem("road-rage-hi-score");
     this.parentScoreContainerElement = document.createElement('div');
     this.parentScoreContainerElement.classList.add('score-container');
     this.parentElement.appendChild(this.parentScoreContainerElement);
@@ -282,7 +283,9 @@ class Game {
     this.score = 0;
     this.speed = this.initialSpeed;
     this.speedIncrementScore = SPEED_INCREMENT_INTERVAL;
-    this.hiScore = localStorage.getItem("road-rage-hi-score");
+    if (!this.hiScore || this.score > this.hiScore) {
+      localStorage.setItem('road-rage2-hi-score', this.score);
+    }
     clearInterval(this.moveInterval);
     clearInterval(this.createOpponentCarsInterval);
     this.parentElement.innerHTML = '';
