@@ -39,22 +39,22 @@ class Bird {
     }
   }
 
-  jump(){
+  jump() {
     this.positionY -= this.jumpHeight;
     this.draw();
   }
 
-  fall(gravity){
+  fall(gravity) {
     this.positionY += gravity;
     this.draw();
   }
 
-  draw(){
+  draw() {
     this.birdElement.style.top = this.positionY + 'px';
   }
 
-  checkCollision(playableBackgroundHeight){
-     return this.positionY + this.height >= playableBackgroundHeight || this.positionY <= 0
+  checkCollision(playableBackgroundHeight) {
+    return this.positionY + this.height >= playableBackgroundHeight || this.positionY <= 0
   }
 
 

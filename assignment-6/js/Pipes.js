@@ -1,7 +1,5 @@
-import Background from "./Background";
-
-class Pipes{
-  constructor(parentElement, gameWidth, playableBackgroundHeight){
+class Pipes {
+  constructor(parentElement, gameWidth, playableBackgroundHeight) {
     this.parentElement = parentElement;
     this.gameWidth = gameWidth;
     this.playableBackgroundHeight = playableBackgroundHeight;
@@ -29,7 +27,7 @@ class Pipes{
     this.addPipeAttributes(this.bottomPipeElement)
   }
 
-  addPipeAttributes(pipeElement){
+  addPipeAttributes(pipeElement) {
     pipeElement.style.backgroundImage = 'url(images/top-pipe.png)';
     pipeElement.style.backgroundSize = 'cover';
     pipeElement.style.position = 'absolute';
@@ -44,7 +42,7 @@ class Pipes{
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  setPipeHeight(){
+  setPipeHeight() {
     this.topPipeHeight = this.generateRandomNumber(80, 300);
     this.topPipeElement.style.height = this.topPipeHeight + 'px';
     this.bottomPipeHeight = this.playableBackgroundHeight - this.topPipeHeight - this.gapBetweenPipes;
@@ -52,7 +50,7 @@ class Pipes{
     this.setBottomPipePositionY();
   }
 
-  setBottomPipePositionY(){
+  setBottomPipePositionY() {
     this.bottomPipePositionY = this.topPipeHeight + this.gapBetweenPipes;
     this.bottomPipeElement.style.top = this.bottomPipePositionY + 'px';
   }
@@ -67,8 +65,8 @@ class Pipes{
     this.bottomPipeElement.style.left = this.positionX + 'px';
   }
 
-  isPipeOutOfScreen(){
-    if (this.positionX + this.width <= 0){
+  isPipeOutOfScreen() {
+    if (this.positionX + this.width <= 0) {
       this.topPipeElement.remove();
       this.bottomPipeElement.remove();
       return true;
@@ -76,11 +74,11 @@ class Pipes{
     return false;
   }
 
-  checkCollision(bird){
+  checkCollision(bird) {
     return (this.positionX <= bird.positionX + bird.width &&
       this.positionX + this.width >= bird.positionX &&
       (this.bottomPipePositionY <= bird.positionY + bird.height ||
-      this.topPipeHeight >= bird.positionY));
+        this.topPipeHeight >= bird.positionY));
   }
 }
 

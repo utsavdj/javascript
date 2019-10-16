@@ -1,19 +1,19 @@
-body{
+body {
   background-color: black;
 }
 
-.flappy-bird{
+.flappy-bird {
   position: relative;
   margin: 0 auto;
   background-color: #4EC0CA;
   overflow: hidden;
 }
 
-.flappy-bird .top-pipe{
+.flappy-bird .top-pipe {
   transform: rotate(180deg);
 }
 
-.flappy-bird .game-over{
+.flappy-bird .game-over {
   position: absolute;
   background: url("../images/game-over.png") no-repeat;
   width: 226px;
@@ -22,7 +22,7 @@ body{
   top: 60px;
 }
 
-.flappy-bird .retry{
+.flappy-bird .retry {
   position: absolute;
   padding: 5px 15px;
   text-transform: uppercase;
@@ -35,7 +35,7 @@ body{
   cursor: pointer;
 }
 
-.flappy-bird .score-box{
+.flappy-bird .score-box {
   color: white;
   position: absolute;
   font-size: 35px;
@@ -45,7 +45,7 @@ body{
   z-index: 10;
 }
 
-.flappy-bird .score{
+.flappy-bird .score {
   color: white;
   position: absolute;
   font-size: 20px;
@@ -55,7 +55,7 @@ body{
   z-index: 10;
 }
 
-.flappy-bird .hi-score{
+.flappy-bird .hi-score {
   color: white;
   position: absolute;
   font-size: 20px;
@@ -65,7 +65,7 @@ body{
   z-index: 10;
 }
 
-.flappy-bird .logo{
+.flappy-bird .logo {
   position: absolute;
   background: url("../images/logo.png") no-repeat;
   width: 390px;
@@ -74,7 +74,7 @@ body{
   top: 50px;
 }
 
-.flappy-bird .get-ready{
+.flappy-bird .get-ready {
   position: absolute;
   background: url("../images/get-ready.png") no-repeat;
   width: 174px;
@@ -83,7 +83,7 @@ body{
   top: 214px;
 }
 
-.flappy-bird .instruction{
+.flappy-bird .instruction {
   position: absolute;
   left: 218px;
   top: 334px;
@@ -93,7 +93,7 @@ body{
   z-index: 10;
 }
 
-.flappy-bird .start{
+.flappy-bird .start {
   position: absolute;
   padding: 5px 15px;
   text-transform: uppercase;

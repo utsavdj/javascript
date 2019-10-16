@@ -1,6 +1,6 @@
-import Background from '../js/Background';
-import Pipes from '../js/Pipes';
-import Bird from "../js/Bird";
+import Background from '../js/Background.js';
+import Pipes from '../js/Pipes.js';
+import Bird from "../js/Bird.js";
 
 
 class Game {
@@ -14,7 +14,6 @@ class Game {
     this.height = 655;
     this.parentElement.style.width = this.width + 'px';
     this.parentElement.style.height = this.height + 'px';
-    // this.menu();
     this.menu();
   }
 
@@ -50,7 +49,7 @@ class Game {
 
     this.background = new Background(this.parentElement);
 
-    if(!menu) {
+    if (!menu) {
       this.playableBackgroundHeight = this.height - this.background.groundHeight;
 
       this.bird = new Bird(this.parentElement, this.background);
@@ -76,7 +75,7 @@ class Game {
       function () {
         this.background.moveBackground();
 
-        if(!menu) {
+        if (!menu) {
           this.flapIntervalCounter++;
           if (this.flapIntervalCounter === 5) {
             this.bird.renderBird();
@@ -179,10 +178,10 @@ class Game {
     document.onkeydown = null;
     this.scoreBoxElement.remove();
 
-    if (this.score > this.hiScore){
+    if (this.score > this.hiScore) {
       this.playSound('sounds/point.wav');
       this.hiScore = this.score;
-      localStorage.setItem('flappy-bird-hi-score-'+this.gameId, this.hiScore);
+      localStorage.setItem('flappy-bird-hi-score-' + this.gameId, this.hiScore);
     }
 
     this.gameOverElement = document.createElement('div');

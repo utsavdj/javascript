@@ -1,5 +1,5 @@
 class Background {
-  constructor (parentElement) {
+  constructor(parentElement) {
     this.parentElement = parentElement;
     this.width = 600;
     this.height = 225;
@@ -14,7 +14,7 @@ class Background {
     this.groundIncrement = 2;
   }
 
-  createBackground(){
+  createBackground() {
     this.backgroundElement = document.createElement('div');
     this.backgroundElement.classList.add('background');
     this.backgroundElement.style.backgroundImage = 'url(images/background.png)';
@@ -28,7 +28,7 @@ class Background {
     this.backgroundElement = this.parentElement.getElementsByClassName('background')[0];
   }
 
-  createGround(){
+  createGround() {
     this.groundElement = document.createElement('div');
     this.groundElement.classList.add('ground');
     this.groundElement.style.backgroundImage = 'url(images/ground.png)';
@@ -42,7 +42,7 @@ class Background {
     this.groundElement = this.parentElement.getElementsByClassName('ground')[0];
   }
 
-  moveBackground(){
+  moveBackground() {
     this.groundElement.style.backgroundPosition = (this.groundCounter -= this.groundIncrement) + 'px 0px';
     this.backgroundElement.style.backgroundPosition = (this.backgroundCounter--) + 'px 0px';
   }

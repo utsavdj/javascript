@@ -1,4 +1,4 @@
-import Game from '../js/GAME';
+import Game from '../js/GAME.js';
 
- // container-id
+// container-id
 new Game('game');
