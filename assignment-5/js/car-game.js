@@ -355,6 +355,7 @@ class Game {
     this.score = 0;
     this.speed = this.initialSpeed;
     this.speedIncrementScore = SPEED_INCREMENT_INTERVAL;
+    this.hiScore = localStorage.getItem("road-rage-hi-score");
     this.numberOfBullets = this.numberOfBulletsPerFire * 5;
     this.isBulletsFired = false;
     clearInterval(this.moveInterval);

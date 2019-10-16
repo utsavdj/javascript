@@ -282,6 +282,7 @@ class Game {
     this.score = 0;
     this.speed = this.initialSpeed;
     this.speedIncrementScore = SPEED_INCREMENT_INTERVAL;
+    this.hiScore = localStorage.getItem("road-rage-hi-score");
     clearInterval(this.moveInterval);
     clearInterval(this.createOpponentCarsInterval);
     this.parentElement.innerHTML = '';
