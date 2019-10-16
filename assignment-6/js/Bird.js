@@ -3,14 +3,15 @@ class Bird {
     this.parentElement = parentElement;
     this.birdSpritePositionX = 0;
     this.birdSpriteOffsetPositionX = 58;
-    this.createBird();
-    this.fps = 60;
-    this.frame_limit = 1000 / this.fps;
     this.width = 58;
     this.height = 39;
+    this.positionX = 225;
     this.positionY = 308;
-    this.jumpHeight = 50;
-    this.gravity = 0.1;
+    this.jumpHeight = 60;
+    this.gravity = 0.2;
+    this.numberOfSpritesToMove = 3;
+    this.lastSpritePosition = -(this.width * this.numberOfSpritesToMove);
+    this.createBird();
   }
 
   createBird() {
@@ -21,17 +22,19 @@ class Bird {
     this.birdElement.style.width = this.width + 'px';
     this.birdElement.style.height = this.height + 'px';
     this.birdElement.style.top = this.positionY + 'px';
+    this.birdElement.style.left = this.positionX + 'px';
     this.birdElement.style.backgroundSize = 'cover';
     this.birdElement.style.backgroundRepeat = 'repeat-x';
+    this.birdElement.style.transform = 'rotate(45deg)';
     this.parentElement.appendChild(this.birdElement);
     this.birdElement = this.parentElement.getElementsByClassName('bird')[0];
-    setInterval(this.renderBird.bind(this), 100);
   }
 
   renderBird() {
     this.birdElement.style.backgroundPosition = this.birdSpritePositionX + 'px 0';
+    this.birdElement.style.transition = 'transform 0.4s ease';
     this.birdSpritePositionX -= this.birdSpriteOffsetPositionX;
-    if (this.birdSpritePositionX <= -174) {
+    if (this.birdSpritePositionX <= this.lastSpritePosition) {
       this.birdSpritePositionX = 0;
     }
   }
@@ -50,6 +53,11 @@ class Bird {
     this.birdElement.style.top = this.positionY + 'px';
   }
 
+  checkCollision(playableBackgroundHeight){
+     return this.positionY + this.height >= playableBackgroundHeight || this.positionY <= 0
+  }
+
+
 }
 
-// export default Bird;
+export default Bird;

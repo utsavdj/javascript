@@ -9,10 +9,9 @@ class Background {
     this.groundPositionY = 530;
     this.createBackground();
     this.createGround();
-    setInterval(this.moveBackground.bind(this), 10);
-    this.backgroundCounter = 1;
-    this.groundCounter = 1;
-    this.groundIncrement = 3;
+    this.backgroundCounter = 0;
+    this.groundCounter = 0;
+    this.groundIncrement = 2;
   }
 
   createBackground(){
@@ -48,3 +47,5 @@ class Background {
     this.backgroundElement.style.backgroundPosition = (this.backgroundCounter--) + 'px 0px';
   }
 }
+
+export default Background;
