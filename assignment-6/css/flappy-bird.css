@@ -1,0 +1,25 @@
+body{
+  background-color: black;
+}
+
+.flappy-bird{
+  position: relative;
+  margin: 0 auto;
+  background-color: #4EC0CA;
+  overflow: hidden;
+}
+
+.flappy-bird .background{
+}
+
+.flappy-bird .bird{
+  background-image: url("../images/bird.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 58px;
+  height: 39px;
+  top: 245px;
+  left: 225px;
+}
+
+
