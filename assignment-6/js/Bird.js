@@ -26,6 +26,7 @@ class Bird {
     this.birdElement.style.backgroundSize = 'cover';
     this.birdElement.style.backgroundRepeat = 'repeat-x';
     this.birdElement.style.transform = 'rotate(45deg)';
+    this.birdElement.style.zIndex = '10';
     this.parentElement.appendChild(this.birdElement);
     this.birdElement = this.parentElement.getElementsByClassName('bird')[0];
   }
@@ -45,6 +46,11 @@ class Bird {
   }
 
   fall(gravity) {
+    this.positionY += gravity;
+    this.draw();
+  }
+
+  fallBirdOnCollision(gravity) {
     this.positionY += gravity;
     this.draw();
   }

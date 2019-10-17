@@ -178,6 +178,8 @@ class Game {
     document.onkeydown = null;
     this.scoreBoxElement.remove();
 
+    this.makeBirdFallOnPipeCollision();
+
     if (this.score > this.hiScore) {
       this.playSound('sounds/point.wav');
       this.hiScore = this.score;
@@ -208,6 +210,20 @@ class Game {
       const that = this;
       that.startGame();
     }.bind(this)
+  }
+
+  makeBirdFallOnPipeCollision() {
+    this.birdFallOnCollisionGravityIncrement = 0.5;
+    this.birdFallOnCollisionInterval = setInterval(
+      function () {
+        this.bird.fallBirdOnCollision(this.gravity);
+        this.gravity += this.birdFallOnCollisionGravityIncrement;
+        if (this.playableBackgroundHeight < this.bird.positionY + this.bird.height) {
+          clearInterval(this.birdFallOnCollisionInterval);
+        }
+      }.bind(this),
+      this.frame_limit
+    );
   }
 
   playSound(src) {
