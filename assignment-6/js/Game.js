@@ -168,6 +168,7 @@ class Game {
       this.score++;
       this.scoreBoxElement.innerText = this.score;
       pipe.isScored = true;
+      this.playSound('sounds/point.wav')
     }
   }
 
@@ -180,6 +181,7 @@ class Game {
 
     this.makeBirdFallOnPipeCollision();
 
+    // check high score is to be increased
     if (this.score > this.hiScore) {
       this.playSound('sounds/point.wav');
       this.hiScore = this.score;
