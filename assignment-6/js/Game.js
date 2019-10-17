@@ -6,7 +6,7 @@ import Bird from "../js/Bird.js";
 class Game {
   constructor(gameId) {
     this.fps = 60;
-    this.frame_limit = 1000 / this.fps;
+    this.frameLimit = 1000 / this.fps;
 
     this.gameId = gameId;
     this.parentElement = document.getElementById(this.gameId);
@@ -99,7 +99,7 @@ class Game {
           that.movePipes();
         }
       }.bind(this),
-      this.frame_limit
+      this.frameLimit
     );
   }
 
@@ -226,7 +226,7 @@ class Game {
           clearInterval(this.birdFallOnCollisionInterval);
         }
       }.bind(this),
-      this.frame_limit
+      this.frameLimit
     );
   }
 
