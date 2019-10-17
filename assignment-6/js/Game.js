@@ -126,6 +126,8 @@ class Game {
         this.playSound('sounds/wing.wav');
       }
     };
+
+    // check key if key is pressed if pressed prevent unlimited press
     document.onkeyup = event => {
       isKeyPressed = false;
       const control = event.code;
