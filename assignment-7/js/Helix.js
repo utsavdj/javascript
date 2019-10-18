@@ -27,7 +27,9 @@ class Helix {
 
   // linearly maps value from the range (currentMin-currentMax) to (newMin-newMax)
   map(value, currentMin, currentMax, newMin, newMax) {
+    // convert (currentMin, currentMax) to (0, 1)
     value = (value - currentMin) / (currentMax - currentMin);
+    // convert (0, 1) to (newMin, newMax)
     return newMin + value * (newMax - newMin);
   }
 
