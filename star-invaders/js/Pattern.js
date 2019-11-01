@@ -7,6 +7,7 @@ class Pattern {
   constructor() {
   }
 
+  // bezier curve to generate x and y co-ordinates for pattern
   generateCoOrdinates(t, pattern) {
     let x = (Math.pow((1 - t), 3) * pattern.p1.x) + (3 * Math.pow((1 - t), 2) * t * pattern.p2.x) +
       (3 * (1 - t) * Math.pow(t, 2) * pattern.p3.x) + (Math.pow(t, 3) * pattern.p4.x);
@@ -25,6 +26,7 @@ class Pattern {
     return Math.round(gameWidth / (ALIEN_WIDTH + ALIENS_POSITION_X_OFFSET)) - NO_OF_COLS_OFFSET;
   }
 
+  // function to generate alien position and their move down interval
   getAlienPositionAndInterval(gameWidth) {
     let numCols = this.getNumberOfCols(gameWidth);
     let numRows = MAX_ROWS;
