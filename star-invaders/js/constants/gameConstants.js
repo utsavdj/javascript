@@ -1,0 +1,15 @@
+export const INITIAL_ALIENS_POSITION_Y_OFFSET = 346;
+export const MAX_PLAYER_POSITION_Y_OFFSET = 311;
+export const ALIENS_POSITION_X_OFFSET = 20;
+export const ALIENS_POSITION_Y_OFFSET = 15;
+export const MAX_ROWS = 5;
+export const NO_OF_LEVELS = 5;
+export const ALIEN_WIDTH = 27;
+export const ALIEN_HEIGHT = 44;
+export const NO_OF_COLS_OFFSET = 2;
+export const PLAYER_INITIAL_POSITION_Y_OFFSET = 10;
+export const DEFAULT_SCREEN_WIDTH = 1366;
+export const DEFAULT_SCREEN_HEIGHT = 657;
+export const DEFAULT_PLAYER_SPEED = 7;
+export const DEFAULT_ITEM_SPEED = 4;
+export const DEFAULT_BULLET_SPEED = 5;
