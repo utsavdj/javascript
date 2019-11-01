@@ -42,6 +42,7 @@ class Game {
   menu() {
     let menu = new Menu(this.common.createElement);
     menu.createMenu(this.parentElement);
+    document.body.style.overflowY = 'scroll';
     this.onMenuLevelClick();
     this.onMenuBossRoundClick();
     this.onStartGameClick();
@@ -61,6 +62,7 @@ class Game {
     menuContainer.remove();
     this.init();
     this.checkKeyPress();
+    document.body.style.overflow = 'hidden';
     this.requestAnimation = window.requestAnimationFrame(this.render.bind(this));
   }
 
@@ -134,7 +136,7 @@ class Game {
 
   createGame() {
     this.gameContainerHeight = document.body.offsetHeight;
-    this.gameContainerWidth = document.body.offsetWidth;
+    this.gameContainerWidth = window.screen.width;
     let containerBorderWidth = 2;
     let noOfBordersOnContainer = 4;
     let totalContainerBorderWidth = containerBorderWidth * noOfBordersOnContainer;
