@@ -95,10 +95,10 @@ class Bullet {
       }
     }
 
-    this.draw();
+    this.update();
   }
 
-  draw() {
+  update() {
     this.bulletElement.style.top = this.positionY + 'px';
     this.bulletElement.style.left = this.positionX + 'px';
   }

@@ -40,7 +40,9 @@ class Alien {
     this.pattern = new Pattern();
   }
 
-  createAlien(size, type, pattern = null, isChild = false, properties = null, parentPositionX = null, parentPositionY = null) {
+  // creates alien
+  createAlien(size, type, pattern = null, isChild = false, properties = null, parentPositionX = null,
+              parentPositionY = null) {
     this.size = size;
     this.type = type;
     this.isChild = isChild;
@@ -100,7 +102,7 @@ class Alien {
         this.patternCounter = 0;
       }
     }
-    this.drawToPosition();
+    this.updatePosition();
   }
 
   move() {
@@ -109,7 +111,7 @@ class Alien {
       if (!this.isAllPatternComplete) {
         this.coOrdinates = this.getPatternCoOrdinates();
         this.setPosition();
-        this.draw();
+        this.update();
       } else {
         if (!this.isInPosition) {
           this.setAlienInPosition();
@@ -133,7 +135,7 @@ class Alien {
       this.positionX = this.positionX + (this.moveDirection * this.moveOffset);
     }
     this.alienElement.style.transition = '0.5s';
-    this.draw();
+    this.update();
   }
 
   setPosition() {
@@ -151,7 +153,7 @@ class Alien {
         this.alienElement.style.transition = 'transform 0.5s';
         this.coOrdinates = this.getMoveDownCoOrdinates();
         this.setPosition();
-        this.draw();
+        this.update();
       }
     }
   }
@@ -162,7 +164,7 @@ class Alien {
       this.coOrdinates = this.getChildPatternCoOrdinates();
       if (this.coOrdinates) {
         this.setPosition();
-        this.draw();
+        this.update();
       }
     }
   }
@@ -197,14 +199,14 @@ class Alien {
     }
   }
 
-  drawToPosition() {
+  updatePosition() {
     this.alienElement.style.transform = 'rotate(180deg)';
     this.alienElement.style.transition = 'transform 0.5s';
     this.alienElement.style.left = this.positionX + 'px';
     this.alienElement.style.top = this.positionY + 'px';
   }
 
-  draw() {
+  update() {
     this.alienElement.style.left = this.positionX + 'px';
     this.alienElement.style.top = this.positionY + 'px';
   }

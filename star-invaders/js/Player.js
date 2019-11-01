@@ -73,10 +73,10 @@ class Player {
     this.positionX += directionX;
     this.positionY += directionY;
 
-    this.draw();
+    this.update();
   }
 
-  draw() {
+  update() {
     this.playerElement.style.top = this.positionY + 'px';
     this.playerElement.style.left = this.positionX + 'px';
   }
