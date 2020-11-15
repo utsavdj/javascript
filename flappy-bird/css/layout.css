@@ -1,5 +1,6 @@
 #game {
-  float: left;
+  /*float: left;*/
+  margin: auto;
 }
 
 #game2{

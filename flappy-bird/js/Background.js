@@ -5,7 +5,7 @@ class Background {
     this.height = 225;
     this.positionY = 305;
     this.groundWidth = 600;
-    this.groundHeight = 125;
+    this.groundHeight = 95;
     this.groundPositionY = 530;
     this.createBackground();
     this.createGround();
