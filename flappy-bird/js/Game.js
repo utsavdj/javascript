@@ -11,7 +11,7 @@ class Game {
     this.gameId = gameId;
     this.parentElement = document.getElementById(this.gameId);
     this.width = 600;
-    this.height = 655;
+    this.height = 625;
     this.parentElement.style.width = this.width + 'px';
     this.parentElement.style.height = this.height + 'px';
     this.menu();
